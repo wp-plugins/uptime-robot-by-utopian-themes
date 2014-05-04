@@ -46,7 +46,7 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 		function uptimerobot_css() {
 		    wp_register_style(
 				'uptimerobot-css',
-				plugins_url() . '/uptime-robot/css/style.css',
+				plugins_url() . '/uptime-robot-by-utopian-themes/css/style.css',
 				null,
 				time(),
 				'all'
