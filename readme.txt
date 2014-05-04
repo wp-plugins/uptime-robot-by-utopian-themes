@@ -23,7 +23,6 @@ The widget and monitor listing will be displayed on your WordPress dashboard.
 
 == Frequently Asked Questions ==
 Q: Do I need to sign up for Uptime Robot to get an API key?
-
 A: Yes.  You will not be able to obtain an API key otherwise.
 
 
