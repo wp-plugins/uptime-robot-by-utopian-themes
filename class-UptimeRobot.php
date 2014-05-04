@@ -4,7 +4,7 @@
  * Uptime Robot class.
  *
  * @class		UptimeRobot
- * @version		1.0.0
+ * @version		1.0.1
  * @package		Uptime Robot
  * @author 		Brian Welch
  */
@@ -14,7 +14,7 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 	class UptimeRobot {
 
 		private $options;
-		private $v = '1.0.0';
+		private $v = '1.0.1';
 
 		public function __construct() {
 
@@ -40,13 +40,13 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 
  		/**
  		 * Add CSS to the WordPress Dashboard
- 		 * @since  1.0.0
+ 		 * @since  1.0.1
  		 * @return [type] [description]
  		 */
 		function uptimerobot_css() {
 		    wp_register_style(
 				'uptimerobot-css',
-				plugins_url() . '/uptime-robot-by-utopian-themes/css/style.css',
+				plugins_url( '/css/style.css', __FILE__ ),
 				null,
 				time(),
 				'all'

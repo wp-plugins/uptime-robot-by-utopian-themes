@@ -15,6 +15,8 @@ This plugin will allow you to enter your Uptime Robot API key and will provide a
 
 Each listing is also color coded visually depending on its status, providing much needed information at a quick glance.
 
+TODO:  Add tooltips to widget that show which port is being monitered per subtype.
+
 == Installation ==
 Either upload the zip in the plugins manager, or install using the WordPress dashboard and activate the plugin.
 Once you have activated the plugin, visit the Uptime Robot settings submenu, and enter your Uptime Robot API key, and save your changes.
@@ -47,8 +49,11 @@ A: No.  However, you may donate to help fund further development, should you fin
 2. Widget Settings
 
 == Changelog ==
-v1.0.0
+v1.0.1
+Fix error with loading CSS file if plugin directory name was changed.
 
+
+v1.0.0
 Initial Version
 
 == Upgrade Notice ==
