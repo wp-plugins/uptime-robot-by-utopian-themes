@@ -23,18 +23,27 @@ The widget and monitor listing will be displayed on your WordPress dashboard.
 
 == Frequently Asked Questions ==
 Q: Do I need to sign up for Uptime Robot to get an API key?
+
 A: Yes.  You will not be able to obtain an API key otherwise.
 
+
 Q: What is Uptime Robot?
+
 A: Uptime Robot provides real time site monitoring for multiple different types of connections and data types.
 
+
 Q: Does Uptime Robot cost anything?
+
 A: No.  They have free accounts and options.
 
+
 Q: Are you affiliated with Uptime Robot?
+
 A: No.  I just thought this plugin may be useful.
 
+
 Q: Does it cost anything to use this plugin?
+
 A: No.  However, you may donate to help fund further development, should you find it useful.
 
 
