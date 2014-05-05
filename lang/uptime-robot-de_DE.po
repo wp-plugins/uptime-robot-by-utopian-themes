@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Uptime Robot v1.0.1\n"
+"Project-Id-Version: Uptime Robot v1.0.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2014-05-01 23:38:46+0000\n"
+"PO-Revision-Date: 2014-05-05 15:05:52+0000\n"
 "Last-Translator: administrator <null@carbon.local>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,120 +21,115 @@ msgstr ""
 "X-Textdomain-Support: yes"
 
 #. translators: plugin header field 'Name'
-#: class-UptimeRobot.php:85
+#: class-UptimeRobot.php:82
 #: uptime-robot.php:0
 #@ uptime-robot
 msgid "Uptime Robot"
 msgstr ""
 
-#: class-UptimeRobot.php:191
+#: class-UptimeRobot.php:185
 #@ uptimerobot
 msgid "Paused"
 msgstr "Pausierend"
 
-#: class-UptimeRobot.php:194
+#: class-UptimeRobot.php:188
 #@ uptimerobot
 msgid "Unchecked"
 msgstr "Ungeprüft"
 
-#: class-UptimeRobot.php:197
+#: class-UptimeRobot.php:191
 #@ uptimerobot
 msgid "Up"
 msgstr ""
 
-#: class-UptimeRobot.php:200
+#: class-UptimeRobot.php:194
 #@ uptimerobot
 msgid "Appears Down"
 msgstr ""
 
-#: class-UptimeRobot.php:203
+#: class-UptimeRobot.php:197
 #@ uptimerobot
 msgid "Down"
 msgstr ""
 
-#: class-UptimeRobot.php:206
+#: class-UptimeRobot.php:200
 #@ uptimerobot
 msgid "Unknown"
 msgstr ""
 
-#: class-UptimeRobot.php:220
-#: class-UptimeRobot.php:223
+#: class-UptimeRobot.php:214
+#: class-UptimeRobot.php:217
 #@ uptimerobot
 msgid "warning"
 msgstr ""
 
-#: class-UptimeRobot.php:226
+#: class-UptimeRobot.php:220
 #@ uptimerobot
 msgid "success"
 msgstr ""
 
-#: class-UptimeRobot.php:229
-#: class-UptimeRobot.php:232
+#: class-UptimeRobot.php:223
+#: class-UptimeRobot.php:226
 #@ uptimerobot
 msgid "danger"
 msgstr ""
 
-#: class-UptimeRobot.php:235
+#: class-UptimeRobot.php:229
 #@ uptimerobot
 msgid "info"
 msgstr ""
 
-#: class-UptimeRobot.php:249
+#: class-UptimeRobot.php:243
 #@ uptimerobot
 msgid "HTTP(S)"
 msgstr ""
 
-#: class-UptimeRobot.php:252
+#: class-UptimeRobot.php:246
 #@ uptimerobot
 msgid "Keyword"
 msgstr ""
 
-#: class-UptimeRobot.php:255
+#: class-UptimeRobot.php:249
 #@ uptimerobot
 msgid "Ping"
 msgstr ""
 
-#: class-UptimeRobot.php:258
+#: class-UptimeRobot.php:252
 #@ uptimerobot
 msgid "Port"
 msgstr ""
 
-#: class-UptimeRobot.php:261
+#: class-UptimeRobot.php:279
 #@ uptimerobot
 msgid "POP3"
 msgstr ""
 
-#: class-UptimeRobot.php:264
+#: class-UptimeRobot.php:282
 #@ uptimerobot
 msgid "IMAP"
 msgstr ""
 
-#: class-UptimeRobot.php:267
-#@ uptimerobot
-msgid "Custom"
-msgstr "Maßgeschneidert"
-
-#: class-UptimeRobot.php:306
+#: class-UptimeRobot.php:324
 #@ uptimerobot
 msgid "ID"
 msgstr ""
 
-#: class-UptimeRobot.php:307
+#: class-UptimeRobot.php:325
 #@ uptimerobot
 msgid "Status"
 msgstr ""
 
-#: class-UptimeRobot.php:308
+#: class-UptimeRobot.php:326
 #@ uptimerobot
 msgid "Name"
 msgstr ""
 
-#: class-UptimeRobot.php:309
+#: class-UptimeRobot.php:327
 #@ uptimerobot
 msgid "Type"
 msgstr ""
 
-#: class-UptimeRobot.php:310
+#: class-UptimeRobot.php:329
 #@ uptimerobot
 msgid "Ratio"
 msgstr ""
@@ -163,9 +158,39 @@ msgstr ""
 msgid "http://www.utopianthemes.com/"
 msgstr ""
 
+#: class-UptimeRobot.php:267
+#@ uptimerobot
+msgid "HTTP"
+msgstr ""
+
+#: class-UptimeRobot.php:270
+#@ uptimerobot
+msgid "HTTPS"
+msgstr ""
+
+#: class-UptimeRobot.php:273
+#@ uptimerobot
+msgid "FTP"
+msgstr ""
+
+#: class-UptimeRobot.php:276
+#@ uptimerobot
+msgid "SMTP"
+msgstr ""
+
+#: class-UptimeRobot.php:285
+#@ uptimerobot
+msgid "Custom Port"
+msgstr ""
+
+#: class-UptimeRobot.php:328
+#@ uptimerobot
+msgid "Subtype"
+msgstr ""
+
 #. translators: plugin header field 'Version'
 #: uptime-robot.php:0
 #@ uptime-robot
-msgid "1.0.0"
+msgid "1.0.2"
 msgstr ""
 

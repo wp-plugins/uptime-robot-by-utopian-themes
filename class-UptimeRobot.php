@@ -4,7 +4,7 @@
  * Uptime Robot class.
  *
  * @class		UptimeRobot
- * @version		1.0.1
+ * @version		1.0.2
  * @package		Uptime Robot
  * @author 		Brian Welch
  */
@@ -14,7 +14,7 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 	class UptimeRobot {
 
 		private $options;
-		private $v = '1.0.1';
+		private $v = '1.0.2';
 
 		public function __construct() {
 
@@ -256,7 +256,7 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 		}
 
 		/**
-		 * Set a description based on the monitor type.
+		 * Set a description based on the monitor subtype.
 		 * @since  1.0.0
 		 * @param  [type] $type [description]
 		 * @return [type]       [description]
@@ -303,7 +303,7 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 
 		/**
 		 * Print out all the data and return the content in the Wordpress Dashboard widget.
-		 * @since  1.0.0
+		 * @since  1.0.2
 		 * @return [type] [description]
 		 */
 		function uptimerobot_widget_function() {
@@ -332,12 +332,17 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 					$html .= '<tbody>';
 
 				foreach ( $json->monitors->monitor as $monitor ) {
+					if ( $monitor->type == 4 ) {
+						$tooltip = $monitor->port;
+					} else {
+						$tooltip = 'Standard';
+					}
 					$html .= '<tr class="'.$this->status_class( $monitor->status ).'">';
 					$html .= '<td class="monitor_id">'.$monitor->id.'</td>';
 					$html .= '<td class="monitor_status">'.$this->status_type( $monitor->status ).'</td>';
 					$html .= '<td class="monitor_name"><a href="'.$monitor->url.'" target="_blank">'.$monitor->friendlyname.'</a></td>';
-					$html .= '<td class="monitor_type">'.$this->monitor_type( $monitor->type ).'</td>';
-					$html .= '<td class="monitor_type">'.$this->monitor_subtype( $monitor->subtype ).'</td>';
+					$html .= '<td class="monitor_type" data-tooltip="Port: '.$tooltip.'">'.$this->monitor_type( $monitor->type ).'</td>';
+					$html .= '<td class="monitor_subtype">'.$this->monitor_subtype( $monitor->subtype ).'</td>';
 					$html .= '<td class="monitor_ratio">'.$monitor->alltimeuptimeratio.'</td>';
 					$html .= '</tr>';
 
