@@ -36,11 +36,11 @@ A: No.  They have free accounts and options.
 
 
 Q: Are you affiliated with Uptime Robot?
-A: No.  I just thought this plugin may be useful.
+A: No.  I just thought others may enjoy this plugin.
 
 
 Q: Does it cost anything to use this plugin?
-A: No.  However, you may donate to help fund further development, should you find it useful.
+A: No.  However, you may donate to help fund further development if you find the plugin useful.
 
 
 == Screenshots ==
@@ -48,6 +48,10 @@ A: No.  However, you may donate to help fund further development, should you fin
 2. Widget Settings
 
 == Changelog ==
+v1.0.3
+Code and CSS cleanup.  Revised tooltip function so that tooltips are displayed only on monitored ports.  Updated screenshot.
+
+
 v1.0.2
 Add tooltips to show the port being monitored if the monitor subtype is set to "Port."
 

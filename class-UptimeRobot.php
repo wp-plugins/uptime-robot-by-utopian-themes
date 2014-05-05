@@ -4,7 +4,7 @@
  * Uptime Robot class.
  *
  * @class		UptimeRobot
- * @version		1.0.2
+ * @version		1.0.3
  * @package		Uptime Robot
  * @author 		Brian Welch
  */
@@ -14,7 +14,7 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 	class UptimeRobot {
 
 		private $options;
-		private $v = '1.0.2';
+		private $v = '1.0.3';
 
 		public function __construct() {
 
@@ -44,14 +44,14 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
  		 * @return [type] [description]
  		 */
 		function uptimerobot_css() {
-		    wp_register_style(
+			wp_register_style(
 				'uptimerobot-css',
 				plugins_url( '/css/style.css', __FILE__ ),
 				null,
 				time(),
 				'all'
-		    );
-		    wp_enqueue_style( 'uptimerobot-css' );
+			);
+			wp_enqueue_style( 'uptimerobot-css' );
 		}
 
 		/**
@@ -60,14 +60,14 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 		 * @return [type] [description]
 		 */
 		function uptime_robot_menu() {
-	        add_options_page(
-	            'Settings Admin',
-	            'Uptime Robot',
-	            'manage_options',
-	            'uptime-robot',
-	            array( $this, 'create_uptime_robot_settings_page' )
-	        );
-	    }
+			add_options_page(
+				'Settings Admin',
+				'Uptime Robot',
+				'manage_options',
+				'uptime-robot',
+				array( $this, 'create_uptime_robot_settings_page' )
+			);
+		}
 
 	    /**
 	     * Create WordPress Dashboard Settings Page
@@ -75,20 +75,20 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 	     * @return [type] [description]
 	     */
 		function create_uptime_robot_settings_page() {
-	        $this->options = get_option( 'uptime_robot_option_name' );
-	        ?>
-	        <div class="wrap">
-	            <?php screen_icon(); ?>
-	            <h2><?php _e( 'Uptime Robot','uptime-robot' );?></h2>
-	            <form method="post" action="options.php">
-	            <?php
-	                settings_fields( 'uptime_robot_option_group' );
-	                do_settings_sections( 'uptimerobot-setting-admin' );
-	                submit_button( 'Save Key' );
-	            ?>
-	            </form>
-	        </div>
-	        <?php
+			$this->options = get_option( 'uptime_robot_option_name' );
+			?>
+			<div class="wrap">
+				<?php screen_icon(); ?>
+				<h2><?php _e( 'Uptime Robot','uptime-robot' );?></h2>
+				<form method="post" action="options.php">
+				<?php
+					settings_fields( 'uptime_robot_option_group' );
+					do_settings_sections( 'uptimerobot-setting-admin' );
+					submit_button( 'Save Key' );
+				?>
+				</form>
+			</div>
+			<?php
 	    }
 
 	    /**
@@ -97,27 +97,24 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 	     * @return [type] [description]
 	     */
 		function uptime_robot_page_init() {
-	        register_setting(
-	            'uptime_robot_option_group',
-	            'uptime_robot_option_name',
-	            array( $this, 'sanitize' )
-	        );
-
-	        add_settings_section(
-	            'setting_section_id',
-	            ' ',
-	            array( $this, 'uptime_robot_section_info' ),
-	            'uptimerobot-setting-admin'
-	        );
-
-	        add_settings_field(
-	            'api_key',
-	            'API Key',
-	            array( $this, 'api_key_callback' ),
-	            'uptimerobot-setting-admin',
-	            'setting_section_id'
-	        );
-
+			register_setting(
+				'uptime_robot_option_group',
+				'uptime_robot_option_name',
+				array( $this, 'sanitize' )
+			);
+			add_settings_section(
+				'setting_section_id',
+				' ',
+				array( $this, 'uptime_robot_section_info' ),
+				'uptimerobot-setting-admin'
+			);
+			add_settings_field(
+				'api_key',
+				'API Key',
+				array( $this, 'api_key_callback' ),
+				'uptimerobot-setting-admin',
+				'setting_section_id'
+			);
 	    }
 
 	    /**
@@ -125,12 +122,13 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 	     * @since  1.0.0
 	     * @param  [type] $input [description]
 	     * @return [type]        [description]
+	     * @todo   Properly sanitize the input.
 	     */
 		function sanitize( $input ) {
 
 			$new_input = array();
 			if ( isset ( $input['api_key'] ) )
-		            $new_input['api_key'] = $input['api_key'];
+				$new_input['api_key'] = $input['api_key'];
 			return $new_input;
 	    }
 
@@ -140,7 +138,7 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 	     * @return [type] [description]
 	     */
 		function uptime_robot_section_info() {
-	        print 'Enter your Uptime Robot API key.  If you do not have an API key, you will need to visit <a href="https://uptimerobot.com/dashboard#mySettings" target="_blank">Uptime Robot</a> to acquire one.';
+			print 'Enter your Uptime Robot API key.  If you do not have an API key, you will need to visit <a href="https://uptimerobot.com/dashboard#mySettings" target="_blank">Uptime Robot</a> to acquire one.';
 	    }
 
 	    /**
@@ -149,10 +147,10 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 	     * @return [type] [description]
 	     */
 		function api_key_callback() {
-	        printf(
-	            '<input type="text" id="api_key" name="uptime_robot_option_name[api_key]" value="%s" />',
+			printf(
+				'<input type="text" id="api_key" name="uptime_robot_option_name[api_key]" value="%s" />',
 			isset ( $this->options['api_key'] ) ? esc_attr( $this->options['api_key'] ) : ''
-	        );
+			);
 	    }
 
 		/**
@@ -303,7 +301,7 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 
 		/**
 		 * Print out all the data and return the content in the Wordpress Dashboard widget.
-		 * @since  1.0.2
+		 * @since  1.0.3
 		 * @return [type] [description]
 		 */
 		function uptimerobot_widget_function() {
@@ -325,7 +323,6 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 					$html .= '<th>'.__( 'Status', 'uptimerobot' ).'</th>';
 					$html .= '<th>'.__( 'Name', 'uptimerobot' ).'</th>';
 					$html .= '<th>'.__( 'Type', 'uptimerobot' ).'</th>';
-					$html .= '<th>'.__( 'Subtype', 'uptimerobot' ).'</th>';
 					$html .= '<th>'.__( 'Ratio', 'uptimerobot' ).'</th>';
 					$html .= '</tr>';
 					$html .= '</thead>';
@@ -333,16 +330,14 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 
 				foreach ( $json->monitors->monitor as $monitor ) {
 					if ( $monitor->type == 4 ) {
-						$tooltip = $monitor->port;
-					} else {
-						$tooltip = 'Standard';
+						$tooltip = 'data-tooltip="'.$this->monitor_subtype( $monitor->subtype ).' : '.$monitor->port.'"';
 					}
+
 					$html .= '<tr class="'.$this->status_class( $monitor->status ).'">';
 					$html .= '<td class="monitor_id">'.$monitor->id.'</td>';
 					$html .= '<td class="monitor_status">'.$this->status_type( $monitor->status ).'</td>';
 					$html .= '<td class="monitor_name"><a href="'.$monitor->url.'" target="_blank">'.$monitor->friendlyname.'</a></td>';
-					$html .= '<td class="monitor_type" data-tooltip="Port: '.$tooltip.'">'.$this->monitor_type( $monitor->type ).'</td>';
-					$html .= '<td class="monitor_subtype">'.$this->monitor_subtype( $monitor->subtype ).'</td>';
+					$html .= '<td class="monitor_type" '.$tooltip.'>'.$this->monitor_type( $monitor->type ).'</td>';
 					$html .= '<td class="monitor_ratio">'.$monitor->alltimeuptimeratio.'</td>';
 					$html .= '</tr>';
 
@@ -357,5 +352,5 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 
 		}
 		//End Functions
- 	}//End Class
- }//End If
+	}//End Class
+}//End If
