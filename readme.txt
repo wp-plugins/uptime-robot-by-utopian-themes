@@ -11,7 +11,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 A simple Wordpress dashboard widget that shows you the current uptime stats of your Uptime Robot monitored websites.
 
 == Description ==
-= This plugin will allow you to enter your Uptime Robot API key and will provide a dashboard widget that will show you each of your current monitors, the monitor ID, their type, ratio and will provide a link to each of the sites in question. =
+This plugin will allow you to enter your Uptime Robot API key and will provide a dashboard widget that will show you each of your current monitors, the monitor ID, their type, ratio and will provide a link to each of the sites in question.
 
 *Each listing is also color coded visually depending on its status, providing much needed information at a quick glance.*
 
@@ -44,27 +44,22 @@ Once you have activated the plugin, visit the Uptime Robot settings submenu, and
 
 == Changelog ==
 **v1.0.4**
-
 * Fix API key sanitization.
 
 
 **v1.0.3**
-
 * Code and CSS cleanup.  Revised tooltip function so that tooltips are displayed only on monitored ports.  Updated screenshot.
 
 
 **v1.0.2**
-
 * Add tooltips to show the port being monitored if the monitor subtype is set to "Port."
 
 
 **v1.0.1**
-
 * Fix error with loading CSS file if plugin directory name was changed.
 
 
 **v1.0.0**
-
 * Initial Version
 
 == Upgrade Notice ==
