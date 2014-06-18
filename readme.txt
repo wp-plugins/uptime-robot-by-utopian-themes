@@ -50,7 +50,7 @@ Once you have activated the plugin, visit the Uptime Robot settings submenu, and
 == Changelog ==
 
 Changelog
-==========
+=========
 v1.0.4
 -------
 * Fix API key sanitization.
