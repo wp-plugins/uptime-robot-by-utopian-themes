@@ -48,6 +48,10 @@ A: No.  However, you may donate to help fund further development if you find the
 2. Widget Settings
 
 == Changelog ==
+v1.0.4
+Fix API key sanitization.
+
+
 v1.0.3
 Code and CSS cleanup.  Revised tooltip function so that tooltips are displayed only on monitored ports.  Updated screenshot.
 
@@ -64,4 +68,4 @@ v1.0.0
 Initial Version
 
 == Upgrade Notice ==
-Upgrading from 1.0.0->1.0.2 will fix an error loading CSS if the plugin directory name was changed, and will add in tooltips for ports that are being monitored.
+This is a critical update. Upgrading to 1.0.4 fixes a security issue by properly sanitizing the API Key setting.

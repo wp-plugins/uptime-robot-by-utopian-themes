@@ -4,7 +4,7 @@
  * Uptime Robot class.
  *
  * @class		UptimeRobot
- * @version		1.0.3
+ * @version		1.0.4
  * @package		Uptime Robot
  * @author 		Brian Welch
  */
@@ -14,7 +14,7 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 	class UptimeRobot {
 
 		private $options;
-		private $v = '1.0.3';
+		private $v = '1.0.4';
 
 		public function __construct() {
 
@@ -84,7 +84,7 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 				<?php
 					settings_fields( 'uptime_robot_option_group' );
 					do_settings_sections( 'uptimerobot-setting-admin' );
-					submit_button( 'Save Key' );
+					submit_button( 'Save Settings' );
 				?>
 				</form>
 			</div>
@@ -115,22 +115,29 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 				'uptimerobot-setting-admin',
 				'setting_section_id'
 			);
+			// add_settings_field(
+			// 	'show_id',
+			// 	'Show Monitor ID',
+			// 	array( $this, 'check1_callback' ),
+			// 	'uptimerobot-setting-admin',
+			// 	'setting_section_id'
+			// );
 	    }
 
 	    /**
 	     * Sanitize API Key Input
-	     * @since  1.0.0
+	     * @since  1.0.4
 	     * @param  [type] $input [description]
 	     * @return [type]        [description]
-	     * @todo   Properly sanitize the input.
-	     */
+		*/
 		function sanitize( $input ) {
 
 			$new_input = array();
 			if ( isset ( $input['api_key'] ) )
-				$new_input['api_key'] = $input['api_key'];
+				$new_input['api_key'] = sanitize_key($input['api_key']);
+				// $new_input['show_id'] .= $new_input['show_id'];
 			return $new_input;
-	    }
+		}
 
 	    /**
 	     * Settings Description
@@ -152,6 +159,17 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 			isset ( $this->options['api_key'] ) ? esc_attr( $this->options['api_key'] ) : ''
 			);
 	    }
+
+	    /**
+	     * Monitor ID Checkbox Callback
+	     * @return [type] [description]
+	     */
+		function check1_callback() {
+			printf(
+				'<input type="checkbox" id="show_id" name="uptime_robot_option_name[show_id]" value="%s" />',
+			isset ( $this->options['show_id'] ) ? esc_attr( $this->options['show_id'] ) : ''
+			);
+		}
 
 		/**
 		 * Get the uptime data in JSON using CURL
