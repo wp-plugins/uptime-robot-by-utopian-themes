@@ -48,6 +48,7 @@ Once you have activated the plugin, visit the Uptime Robot settings submenu, and
 2. Widget Settings
 
 == Changelog ==
+
 Changelog
 ==========
 v1.0.4
