@@ -44,22 +44,27 @@ Once you have activated the plugin, visit the Uptime Robot settings submenu, and
 
 == Changelog ==
 **v1.0.4**
+
 * Fix API key sanitization.
 
 
 **v1.0.3**
+
 * Code and CSS cleanup.  Revised tooltip function so that tooltips are displayed only on monitored ports.  Updated screenshot.
 
 
 **v1.0.2**
+
 * Add tooltips to show the port being monitored if the monitor subtype is set to "Port."
 
 
 **v1.0.1**
+
 * Fix error with loading CSS file if plugin directory name was changed.
 
 
 **v1.0.0**
+
 * Initial Version
 
 == Upgrade Notice ==
