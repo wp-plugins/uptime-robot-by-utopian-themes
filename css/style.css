@@ -258,7 +258,7 @@ table th[class*="col-"] {
     width: 60px;
 }
 .monitor_status {
-    width: 40px;
+    width: 18px;
 }
 .monitor_name {
     width: auto;
@@ -267,7 +267,7 @@ table th[class*="col-"] {
     width: 40px;
 }
 .monitor_ratio {
-    width: 20px;
+    width: 18px;
 }
 
 /* Tooltips */
@@ -286,15 +286,15 @@ table th[class*="col-"] {
 }
 [data-tooltip]:before {
     position: absolute;
-    bottom: 150%;
+    bottom: 75%;
     left: 25%;
     margin-bottom: 5px;
     margin-left: -30px;
     padding: 5px;
-    width: 100px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    width: 75px;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
     background-color: #000;
     background-color: hsla(0, 0%, 20%, 0.9);
     color: #fff;
@@ -305,8 +305,8 @@ table th[class*="col-"] {
 }
 [data-tooltip]:after {
     position: absolute;
-    bottom: 150%;
-    left: 25%;
+    bottom: 75%;
+    left: 45%;
     margin-left: -5px;
     width: 0;
     border-top: 5px solid #000;

@@ -43,6 +43,14 @@ Once you have activated the plugin, visit the Uptime Robot settings submenu, and
 2. Widget Settings
 
 == Changelog ==
+**v1.0.5**
+* Added icons and tooltips for the monitor status and removed status text in an order to maximize widget real estate.
+* Added option to toggle the display of the monitor ID.
+* Added option to toggle the display of the uptime ratio.
+* Added option to toggle the display of the monitor type.
+* Cleaned up tooltip styling.
+
+
 **v1.0.4**
 * Fix API key sanitization.
 
@@ -63,4 +71,4 @@ Once you have activated the plugin, visit the Uptime Robot settings submenu, and
 * Initial Version
 
 == Upgrade Notice ==
-This is a critical update. Upgrading to 1.0.4 fixes a security issue by properly sanitizing the API Key setting.
+Upgrading to 1.0.4 fixes a security issue by properly sanitizing the API Key setting.  Upgrading to 1.0.5 enables a few additional display options.  We recommend you upgrade to the latest version.

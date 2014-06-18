@@ -4,7 +4,7 @@
  * Uptime Robot class.
  *
  * @class		UptimeRobot
- * @version		1.0.4
+ * @version		1.0.5
  * @package		Uptime Robot
  * @author 		Brian Welch
  */
@@ -14,7 +14,7 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 	class UptimeRobot {
 
 		private $options;
-		private $v = '1.0.4';
+		private $v = '1.0.5';
 
 		public function __construct() {
 
@@ -71,11 +71,14 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 
 	    /**
 	     * Create WordPress Dashboard Settings Page
-	     * @since  1.0.0
+	     * @since  1.0.5
 	     * @return [type] [description]
 	     */
 		function create_uptime_robot_settings_page() {
-			$this->options = get_option( 'uptime_robot_option_name' );
+			$this->options = get_option( 'uptime_robot_option_apikey' );
+			$this->options2 = get_option( 'uptime_robot_option_showid' );
+			$this->options3 = get_option( 'uptime_robot_option_showtype' );
+			$this->options4 = get_option( 'uptime_robot_option_showratio' );
 			?>
 			<div class="wrap">
 				<?php screen_icon(); ?>
@@ -93,14 +96,26 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 
 	    /**
 	     * Add Content to WordPress Dashboard Settings Page
-	     * @since  1.0.0
+	     * @since  1.0.5
 	     * @return [type] [description]
 	     */
 		function uptime_robot_page_init() {
 			register_setting(
 				'uptime_robot_option_group',
-				'uptime_robot_option_name',
-				array( $this, 'sanitize' )
+				'uptime_robot_option_apikey',
+				array( $this, 'sanitizekey' )
+			);
+			register_setting(
+				'uptime_robot_option_group',
+				'uptime_robot_option_showid'
+			);
+			register_setting(
+				'uptime_robot_option_group',
+				'uptime_robot_option_showtype'
+			);
+			register_setting(
+				'uptime_robot_option_group',
+				'uptime_robot_option_showratio'
 			);
 			add_settings_section(
 				'setting_section_id',
@@ -115,13 +130,27 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 				'uptimerobot-setting-admin',
 				'setting_section_id'
 			);
-			// add_settings_field(
-			// 	'show_id',
-			// 	'Show Monitor ID',
-			// 	array( $this, 'check1_callback' ),
-			// 	'uptimerobot-setting-admin',
-			// 	'setting_section_id'
-			// );
+			add_settings_field(
+				'show_id',
+				'Show Monitor ID',
+				array( $this, 'id_check_callback' ),
+				'uptimerobot-setting-admin',
+				'setting_section_id'
+			);
+			add_settings_field(
+				'show_type',
+				'Show Monitor Type',
+				array( $this, 'type_check_callback' ),
+				'uptimerobot-setting-admin',
+				'setting_section_id'
+			);
+			add_settings_field(
+				'show_ratio',
+				'Show Uptime Ratio',
+				array( $this, 'ratio_check_callback' ),
+				'uptimerobot-setting-admin',
+				'setting_section_id'
+			);
 	    }
 
 	    /**
@@ -130,12 +159,10 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 	     * @param  [type] $input [description]
 	     * @return [type]        [description]
 		*/
-		function sanitize( $input ) {
-
+		function sanitizekey( $input ) {
 			$new_input = array();
 			if ( isset ( $input['api_key'] ) )
 				$new_input['api_key'] = sanitize_key($input['api_key']);
-				// $new_input['show_id'] .= $new_input['show_id'];
 			return $new_input;
 		}
 
@@ -155,19 +182,41 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 	     */
 		function api_key_callback() {
 			printf(
-				'<input type="text" id="api_key" name="uptime_robot_option_name[api_key]" value="%s" />',
+				'<input type="text" id="api_key" name="uptime_robot_option_apikey[api_key]" value="%s" />',
 			isset ( $this->options['api_key'] ) ? esc_attr( $this->options['api_key'] ) : ''
 			);
 	    }
 
-	    /**
-	     * Monitor ID Checkbox Callback
+		/**
+	     * ID Checkbox Callback
+	     * @since  1.0.5
 	     * @return [type] [description]
 	     */
-		function check1_callback() {
+		function id_check_callback() {
 			printf(
-				'<input type="checkbox" id="show_id" name="uptime_robot_option_name[show_id]" value="%s" />',
-			isset ( $this->options['show_id'] ) ? esc_attr( $this->options['show_id'] ) : ''
+				'<input type="checkbox" id="show_id" name="uptime_robot_option_showid[show_id]" value="1";' . checked( isset( $this->options2['show_id'] ), true, false ) . '/>', 'uptimerobot'
+			);
+		}
+
+		/**
+	     * Type Checkbox Callback
+	     * @since  1.0.5
+	     * @return [type] [description]
+	     */
+		function type_check_callback() {
+			printf(
+				'<input type="checkbox" id="show_type" name="uptime_robot_option_showtype[show_type]" value="1";' . checked( isset( $this->options3['show_type'] ), true, false ) . '/>', 'uptimerobot'
+			);
+		}
+
+		/**
+	     * Ratio Checkbox Callback
+	     * @since  1.0.5
+	     * @return [type] [description]
+	     */
+		function ratio_check_callback() {
+			printf(
+				'<input type="checkbox" id="show_ratio" name="uptime_robot_option_showratio[show_ratio]" value="1";' . checked( isset( $this->options4['show_ratio'] ), true, false ) . '/>', 'uptimerobot'
 			);
 		}
 
@@ -177,7 +226,7 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 		 * @return [type] [description]
 		 */
 		public function get_uptime_data() {
-			$api_key = get_option( 'uptime_robot_option_name' );
+			$api_key = get_option( 'uptime_robot_option_apikey' );
 
 			$url = 'http://api.uptimerobot.com/getMonitors?apiKey=' . $api_key['api_key'] . '&logs=1&showTimezone=1&format=json&noJsonCallback=1';
 			$c = curl_init( $url );
@@ -195,7 +244,7 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 		 * @param  [type] $status [description]
 		 * @return [type]         [description]
 		 */
-		function status_type( $status ) {
+		function status_type_text( $status ) {
 			switch ( $status ) {
 				case 0:
 					$stat = __( 'Paused' , 'uptimerobot' );
@@ -214,6 +263,35 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 					break;
 				default:
 					$stat = __( 'Unknown', 'uptimerobot' );
+			}
+			return $stat;
+		}
+
+		/**
+		 * Return an icon based on the monitors status.
+		 * @since  1.0.5
+		 * @param  [type] $status [description]
+		 * @return [type]         [description]
+		 */
+		function status_type_icon( $status ) {
+			switch ( $status ) {
+				case 0:
+					$stat = __( '<img src='.plugins_url( '/img/paused.png', __FILE__ ).' />' , 'uptimerobot' );
+					break;
+				case 1:
+					$stat = __( '<img src='.plugins_url( '/img/unchecked.png', __FILE__ ).' />', 'uptimerobot' );
+					break;
+				case 2:
+					$stat = __( '<img src='.plugins_url( '/img/up.png', __FILE__ ).' />', 'uptimerobot' );
+					break;
+				case 8:
+					$stat = __( '<img src='.plugins_url( '/img/appears_down.png', __FILE__ ).' />', 'uptimerobot' );
+					break;
+				case 9:
+					$stat = __( '<img src='.plugins_url( '/img/down.png', __FILE__ ).' />', 'uptimerobot' );
+					break;
+				default:
+					$stat = __( '<img src='.plugins_url( '/img/unknown.png', __FILE__ ).' />', 'uptimerobot' );
 			}
 			return $stat;
 		}
@@ -319,10 +397,10 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 
 		/**
 		 * Print out all the data and return the content in the Wordpress Dashboard widget.
-		 * @since  1.0.3
+		 * @since  1.0.5
 		 * @return [type] [description]
 		 */
-		function uptimerobot_widget_function() {
+		function uptimerobot_widget_function($status) {
 
 			$json = $this->get_uptime_data();
 
@@ -337,26 +415,40 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 			}
 			else {
 					$html .= '<tr>';
-					$html .= '<th>'.__( 'ID', 'uptimerobot' ).'</th>';
-					$html .= '<th>'.__( 'Status', 'uptimerobot' ).'</th>';
+					$html .= '<th>'.__( '', 'uptimerobot' ).'</th>';
+					if ( get_option( 'uptime_robot_option_showid' ) ) {
+						$html .= '<th>'.__( 'ID', 'uptimerobot' ).'</th>';
+					}
 					$html .= '<th>'.__( 'Name', 'uptimerobot' ).'</th>';
-					$html .= '<th>'.__( 'Type', 'uptimerobot' ).'</th>';
-					$html .= '<th>'.__( 'Ratio', 'uptimerobot' ).'</th>';
+					if ( get_option( 'uptime_robot_option_showtype' ) ) {
+						$html .= '<th>'.__( 'Type', 'uptimerobot' ).'</th>';
+					}
+					if ( get_option( 'uptime_robot_option_showratio' ) ) {
+						$html .= '<th>'.__( 'Ratio', 'uptimerobot' ).'</th>';
+					}
 					$html .= '</tr>';
 					$html .= '</thead>';
 					$html .= '<tbody>';
 
 				foreach ( $json->monitors->monitor as $monitor ) {
 					if ( $monitor->type == 4 ) {
-						$tooltip = 'data-tooltip="'.$this->monitor_subtype( $monitor->subtype ).' : '.$monitor->port.'"';
+						$port_tip = 'data-tooltip="'.$this->monitor_subtype( $monitor->subtype ).' : '.$monitor->port.'"';
 					}
 
-					$html .= '<tr class="'.$this->status_class( $monitor->status ).'">';
-					$html .= '<td class="monitor_id">'.$monitor->id.'</td>';
-					$html .= '<td class="monitor_status">'.$this->status_type( $monitor->status ).'</td>';
+					$stat_tip = 'data-tooltip="'.$this->status_type_text( $monitor->status ).'"';
+
+					$html .= '<tr class="'.$this->status_class( $monitor->status ).'" >';
+					$html .= '<td class="monitor_status" '.$stat_tip.'>'.$this->status_type_icon( $monitor->status ).'</td>';
+					if ( get_option( 'uptime_robot_option_showid' ) ) {
+						$html .= '<td class="monitor_id">'.$monitor->id.'</td>';
+					}
 					$html .= '<td class="monitor_name"><a href="'.$monitor->url.'" target="_blank">'.$monitor->friendlyname.'</a></td>';
-					$html .= '<td class="monitor_type" '.$tooltip.'>'.$this->monitor_type( $monitor->type ).'</td>';
-					$html .= '<td class="monitor_ratio">'.$monitor->alltimeuptimeratio.'</td>';
+					if ( get_option( 'uptime_robot_option_showtype' ) ) {
+						$html .= '<td class="monitor_type" '.$port_tip.'>'.$this->monitor_type( $monitor->type ).'</td>';
+					}
+					if ( get_option( 'uptime_robot_option_showratio' ) ) {
+						$html .= '<td class="monitor_ratio">'.$monitor->alltimeuptimeratio.'</td>';
+					}
 					$html .= '</tr>';
 
 				}
