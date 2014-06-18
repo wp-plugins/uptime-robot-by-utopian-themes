@@ -13,14 +13,14 @@ A simple Wordpress dashboard widget that shows you the current uptime stats of y
 == Description ==
 This plugin will allow you to enter your Uptime Robot API key and will provide a dashboard widget that will show you each of your current monitors, the monitor ID, their type, ratio and will provide a link to each of the sites in question.
 
-Each listing is also color coded visually depending on its status, providing much needed information at a quick glance.
+*Each listing is also color coded visually depending on its status, providing much needed information at a quick glance.*
 
 
 == Installation ==
 Either upload the zip in the plugins manager, or install using the WordPress dashboard and activate the plugin.
 Once you have activated the plugin, visit the Uptime Robot settings submenu, and enter your Uptime Robot API key, and save your changes.
 
-> The widget and monitor listing will be displayed on your WordPress dashboard.
+The widget and monitor listing will be displayed on your WordPress dashboard.
 
 == Frequently Asked Questions ==
 * Q: Do I need to sign up for Uptime Robot to get an API key?
@@ -42,38 +42,29 @@ Once you have activated the plugin, visit the Uptime Robot settings submenu, and
 * Q: Does it cost anything to use this plugin?
 * A: No.  However, you may donate to help fund further development if you find the plugin useful.
 
-
 == Screenshots ==
 1. Dashboard Widget
 2. Widget Settings
 
 == Changelog ==
-
-Changelog
-=========
-v1.0.4
--------
+**v1.0.4**
 * Fix API key sanitization.
 
 
-v1.0.3
--------
+**v1.0.3**
 * Code and CSS cleanup.  Revised tooltip function so that tooltips are displayed only on monitored ports.  Updated screenshot.
 
 
-v1.0.2
--------
+**v1.0.2**
 * Add tooltips to show the port being monitored if the monitor subtype is set to "Port."
 
 
-v1.0.1
--------
+**v1.0.1**
 * Fix error with loading CSS file if plugin directory name was changed.
 
 
-v1.0.0
--------
+**v1.0.0**
 * Initial Version
 
 == Upgrade Notice ==
-> This is a *critical* security update. Updating to 1.0.4 fixes a security issue by properly sanitizing the API Key.
+This is a critical update. Upgrading to 1.0.4 fixes a security issue by properly sanitizing the API Key setting.
