@@ -4,7 +4,7 @@
  * Uptime Robot class.
  *
  * @class		UptimeRobot
- * @version		1.0.5
+ * @version		1.0.6
  * @package		Uptime Robot
  * @author 		Brian Welch
  */
@@ -14,7 +14,7 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 	class UptimeRobot {
 
 		private $options;
-		private $v = '1.0.5';
+		private $v = '1.0.6';
 
 		public function __construct() {
 
@@ -162,17 +162,17 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 		function sanitizekey( $input ) {
 			$new_input = array();
 			if ( isset ( $input['api_key'] ) )
-				$new_input['api_key'] = sanitize_key($input['api_key']);
+				$new_input['api_key'] = sanitize_key( $input['api_key'] );
 			return $new_input;
 		}
 
 	    /**
 	     * Settings Description
-	     * @since  1.0.0
+	     * @since  1.0.6
 	     * @return [type] [description]
 	     */
 		function uptime_robot_section_info() {
-			print 'Enter your Uptime Robot API key.  If you do not have an API key, you will need to visit <a href="https://uptimerobot.com/dashboard#mySettings" target="_blank">Uptime Robot</a> to acquire one.';
+			print 'Please enter your Uptime Robot API key.  If you do not have an API key, you will need to visit <a href="https://uptimerobot.com/dashboard#mySettings" target="_blank">Uptime Robot</a> to acquire one.';
 	    }
 
 	    /**
@@ -276,22 +276,22 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 		function status_type_icon( $status ) {
 			switch ( $status ) {
 				case 0:
-					$stat = __( '<img src='.plugins_url( '/img/paused.png', __FILE__ ).' />' , 'uptimerobot' );
+					$stat = __( '<img src='.esc_html( plugins_url( '/img/paused.png', __FILE__ ).' />' , 'uptimerobot' ) );
 					break;
 				case 1:
-					$stat = __( '<img src='.plugins_url( '/img/unchecked.png', __FILE__ ).' />', 'uptimerobot' );
+					$stat = __( '<img src='.esc_html( plugins_url( '/img/unchecked.png', __FILE__ ).' />', 'uptimerobot' ) );
 					break;
 				case 2:
-					$stat = __( '<img src='.plugins_url( '/img/up.png', __FILE__ ).' />', 'uptimerobot' );
+					$stat = __( '<img src='.esc_html( plugins_url( '/img/up.png', __FILE__ ).' />', 'uptimerobot' ) );
 					break;
 				case 8:
-					$stat = __( '<img src='.plugins_url( '/img/appears_down.png', __FILE__ ).' />', 'uptimerobot' );
+					$stat = __( '<img src='.esc_html( plugins_url( '/img/appears_down.png', __FILE__ ).' />', 'uptimerobot' ) );
 					break;
 				case 9:
-					$stat = __( '<img src='.plugins_url( '/img/down.png', __FILE__ ).' />', 'uptimerobot' );
+					$stat = __( '<img src='.esc_html( plugins_url( '/img/down.png', __FILE__ ).' />', 'uptimerobot' ) );
 					break;
 				default:
-					$stat = __( '<img src='.plugins_url( '/img/unknown.png', __FILE__ ).' />', 'uptimerobot' );
+					$stat = __( '<img src='.esc_html( plugins_url( '/img/unknown.png', __FILE__ ).' />', 'uptimerobot' ) );
 			}
 			return $stat;
 		}
@@ -400,7 +400,7 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 		 * @since  1.0.5
 		 * @return [type] [description]
 		 */
-		function uptimerobot_widget_function($status) {
+		function uptimerobot_widget_function( $status ) {
 
 			$json = $this->get_uptime_data();
 
@@ -416,14 +416,14 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 			else {
 					$html .= '<tr>';
 					$html .= '<th>'.__( '', 'uptimerobot' ).'</th>';
-					if ( get_option( 'uptime_robot_option_showid' ) ) {
+				if ( get_option( 'uptime_robot_option_showid' ) ) {
 						$html .= '<th>'.__( 'ID', 'uptimerobot' ).'</th>';
 					}
 					$html .= '<th>'.__( 'Name', 'uptimerobot' ).'</th>';
-					if ( get_option( 'uptime_robot_option_showtype' ) ) {
+				if ( get_option( 'uptime_robot_option_showtype' ) ) {
 						$html .= '<th>'.__( 'Type', 'uptimerobot' ).'</th>';
 					}
-					if ( get_option( 'uptime_robot_option_showratio' ) ) {
+				if ( get_option( 'uptime_robot_option_showratio' ) ) {
 						$html .= '<th>'.__( 'Ratio', 'uptimerobot' ).'</th>';
 					}
 					$html .= '</tr>';

@@ -23,19 +23,19 @@ Once you have activated the plugin, visit the Uptime Robot settings submenu, and
 **The widget and monitor listing will be displayed on your WordPress dashboard.**
 
 == Frequently Asked Questions ==
-* Q: Do I need to sign up for Uptime Robot to get an API key?
+= Q: Do I need to sign up for Uptime Robot to get an API key? =
 * A: Yes.  You will not be able to obtain an API key otherwise.
 
-* Q: What is Uptime Robot?
+= Q: What is Uptime Robot? =
 * A: Uptime Robot provides real time site monitoring for multiple different types of connections and data types.
 
-* Q: Does Uptime Robot cost anything?
+= Q: Does Uptime Robot cost anything? =
 * A: No.  They have free accounts and options.
 
-* Q: Are you affiliated with Uptime Robot?
+= Q: Are you affiliated with Uptime Robot? =
 * A: No.  I just thought others may enjoy this plugin.
 
-* Q: Does it cost anything to use this plugin?
+= Q: Does it cost anything to use this plugin? =
 * A: No.  However, you may donate to help fund further development if you find the plugin useful.
 
 == Screenshots ==
@@ -43,7 +43,14 @@ Once you have activated the plugin, visit the Uptime Robot settings submenu, and
 2. Widget Settings
 
 == Changelog ==
-**v1.0.5**
+= v1.0.6 =
+* Code Cleanup [See also: WordPress PHP Coding Standards](http://make.wordpress.org/core/handbook/coding-standards/php/)
+* Sanitize the URL of the panel images.
+* Update readme.txt for better legibility and markdown.
+* Tagging as Wordpress 4.0 ready
+
+
+= v1.0.5 =
 * Added icons and tooltips for the monitor status and removed status text in an order to maximize widget real estate.
 * Added option to toggle the display of the monitor ID.
 * Added option to toggle the display of the uptime ratio.
@@ -51,24 +58,42 @@ Once you have activated the plugin, visit the Uptime Robot settings submenu, and
 * Cleaned up tooltip styling.
 
 
-**v1.0.4**
+= v1.0.4 =
 * Fix API key sanitization.
 
 
-**v1.0.3**
+= v1.0.3 =
 * Code and CSS cleanup.  Revised tooltip function so that tooltips are displayed only on monitored ports.  Updated screenshot.
 
 
-**v1.0.2**
+= v1.0.2 =
 * Add tooltips to show the port being monitored if the monitor subtype is set to "Port."
 
 
-**v1.0.1**
+= v1.0.1 =
 * Fix error with loading CSS file if plugin directory name was changed.
 
 
-**v1.0.0**
+= v1.0.0 =
 * Initial Version
 
 == Upgrade Notice ==
-Upgrading to 1.0.4 fixes a security issue by properly sanitizing the API Key setting.  Upgrading to 1.0.5 enables a few additional display options.  We recommend you upgrade to the latest version.
+= 1.0.6 =
+Upgrading to 1.0.6 fixes a security issue with sanitizing the panel image URLs, and is ready for WordPress 4.0.x
+
+= 1.0.5 =
+Upgrading to 1.0.5 enables a few additional display options.
+
+= 1.0.4 =
+Upgrading to 1.0.4 fixes a security issue by properly sanitizing the API Key setting.
+
+== Translations ==
+
+* English: Default - Always included.
+* German: Secondary - In der Regel enthalten.
+
+== Credits ==
+* Thanks to David Sal for the idea and ["Uptime Robot"](http://www.uptimerobot.com/) for providing a wonderful free service.
+
+== Additional Info ==
+None.
