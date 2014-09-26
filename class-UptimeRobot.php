@@ -404,9 +404,11 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 
 			$json = $this->get_uptime_data();
 
-				$html .= '<div class="table-responsive">';
-				$html .= '<table class="table table-hover table-condensed">';
-				$html .= '<thead>';
+			$port_tip = '';
+
+			$html = '<div class="table-responsive">';
+			$html .= '<table class="table table-hover table-condensed">';
+			$html .= '<thead>';
 
 			if ( empty( $json->monitors->monitor ) ) {
 					$html .= '<tr class="info">';
