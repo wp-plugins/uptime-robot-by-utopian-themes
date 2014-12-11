@@ -35,6 +35,9 @@ Once you have activated the plugin, visit the Uptime Robot settings submenu, and
 **Q: Does it cost anything to use this plugin?**
 *No.  However, you may donate to help fund further development if you find the plugin useful.*
 
+**Q: Is development going to continue on this plugin?**
+*No.  This plugin has reached end of life and is now being maintained as a separate plugin for the Maera framework for WordPress.  Find out more at http://press.codes*
+
 
 ## Screenshots ##
 ![Alt text](https://github.com/briancwelch/uptime_robot/blob/screenshots/screenshot-1.png?raw=true "Dashboard Widget")
@@ -43,6 +46,10 @@ Once you have activated the plugin, visit the Uptime Robot settings submenu, and
 
 
 ## Changelog ##
+**v1.0.8**
+- Tagging as ready for WordPress 4.1
+- Final standalone version.  Now being maintained only as a Maera framework plugin for WordPress.  Find out more at http://press.codes
+
 **v1.0.7**
 - Fix an issue with $port_tip being undefined which caused an error in the debugger.
 - Fix spelling and grammar mistakes in the documentation.

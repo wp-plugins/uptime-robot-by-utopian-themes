@@ -4,7 +4,7 @@
  * Uptime Robot class.
  *
  * @class		UptimeRobot
- * @version		1.0.6
+ * @version		1.0.8
  * @package		Uptime Robot
  * @author 		Brian Welch
  */
@@ -14,7 +14,7 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 	class UptimeRobot {
 
 		private $options;
-		private $v = '1.0.6';
+		private $v = '1.0.8';
 
 		public function __construct() {
 
