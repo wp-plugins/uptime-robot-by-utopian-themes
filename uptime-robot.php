@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name:       Uptime Robot by Utopian Themes
+ * Plugin Name:       Uptime Robot
  * Plugin URI:        http://www.utopianthemes.com/downloads/uptime-robot/
  * Description:       A simple Wordpress dashboard widget that shows you the current uptime stats of your Uptime Robot monitored websites.
- * Version:           1.0.8
+ * Version:           1.1.0
  * Author:            Brian Welch
  * Author URI:        http://briancwelch.com/
  * Requires at least: 3.7
@@ -18,7 +18,8 @@
  * @author            Brian Welch
  */
 
-include_once( dirname( __FILE__ ).'/class-UptimeRobot.php' );
+include_once( dirname( __FILE__ ).'/class-uptime-robot.php' );
+include_once( dirname( __FILE__ ).'/class-uptime-robot-widget.php' );
 
-if ( is_admin( ) )
-	$uptime_robot = new UptimeRobot();
+$uptime_robot = new UptimeRobot();
+$uptime_robot_widget = new UptimeRobotWidget();
