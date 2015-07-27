@@ -2,8 +2,8 @@
 Contributors: brianwelch
 Tags: Uptime Robot, dashboard, widget, monitoring
 Donate link: http://briancwelch.com
-Requires at least: 3.7
-Tested up to: 4.0
+Requires at least: 3.5
+Tested up to: 4.2.3
 Stable tag: trunk
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -46,6 +46,10 @@ Once you have activated the plugin, visit the Uptime Robot settings submenu, and
 
 
 == Changelog ==
+= v1.1.1 =
+* Properly sanitize the front end widget input/output.
+* Updated translations.
+
 = v1.1.0 =
 * Updated translations.
 
