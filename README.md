@@ -1,7 +1,7 @@
 # Uptime Robot #
 Contributors: @briancwelch
 Requires at least: WordPress 3.7
-Tested up to: WordPress 4.0
+Tested up to: WordPress 4.2.3
 
 A simple WordPress dashboard widget that shows you the current uptime stats of your Uptime Robot monitored websites.
 
@@ -34,9 +34,6 @@ Once you have activated the plugin, visit the Uptime Robot settings submenu, and
 **Q: Does it cost anything to use this plugin?**
 *No.  However, you may donate to help fund further development if you find the plugin useful.*
 
-**Q: Is development going to continue on this plugin?**
-*No.  This plugin has reached end of life and is now being maintained as a separate plugin for the Maera framework for WordPress.  Find out more at http://press.codes*
-
 
 ## Screenshots ##
 ![Alt text](https://github.com/briancwelch/uptime_robot/blob/screenshots/screenshot-1.png?raw=true "Dashboard Widget")
@@ -45,6 +42,10 @@ Once you have activated the plugin, visit the Uptime Robot settings submenu, and
 
 
 ## Changelog ##
+**v1.1.1**
+- Properly sanitize the front end widget input/output.
+- Updated translations.
+
 **v1.1.0**
 - Updated translations.
 

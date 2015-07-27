@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Uptime Robot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Sun Jul 26 2015 17:30:09 GMT-0400 (Eastern Daylight Time)\n"
-"PO-Revision-Date: Sun Jul 26 2015 17:30:21 GMT-0400 (Eastern Daylight Time)\n"
+"POT-Creation-Date: Mon Jul 27 2015 12:40:35 GMT-0400 (Eastern Daylight Time)\n"
+"PO-Revision-Date: Mon Jul 27 2015 12:40:39 GMT-0400 (Eastern Daylight Time)\n"
 "Last-Translator: administrator <null@carbon.local>\n"
 "Language-Team: \n"
 "Language: English\n"
@@ -28,7 +28,7 @@ msgid "Uptime Robot"
 msgstr ""
 
 #: ../class-uptime-robot-widget.php:28
-msgid "Adds an Uptime Robot widget to the front end"
+msgid "Adds an Uptime Robot widget to the front end."
 msgstr ""
 
 #: ../class-uptime-robot-widget.php:69

@@ -4,7 +4,7 @@
  * Uptime Robot Widget class.
  *
  * @class		UptimeRobot
- * @version		1.0.9
+ * @version		1.1.1
  * @package		Uptime Robot
  * @author 		Brian Welch
  */
@@ -25,29 +25,29 @@ if ( class_exists( 'UptimeRobot' ) ) {
 				'UptimeRobotWidget',
 				__( 'Uptime Robot', 'uptimerobot' ),
 				array(
-					'description' => __( 'Adds an Uptime Robot widget to the front end', 'uptimerobot' ),
+					'description' => __( 'Adds an Uptime Robot widget to the front end.', 'uptimerobot' ),
 				)
 			);
 		}
 
 		/**
 		 * Uptime Robot Widget
-		 * @since  1.0.9
+		 * @since  1.1.1
 		 * @param  [type] $args     [description].
 		 * @param  [type] $instance [description].
 		 */
 		public function widget( $args, $instance ) {
 
 			$title = apply_filters( 'widget_title', $instance['title'] );
-			echo $args['before_widget'];
+			echo wp_kses( $args['before_widget'], null );
 
 			if ( ! empty( $title ) ) {
-				echo $args['before_title'] . $title . $args['after_title'];
+				echo wp_kses( $args['before_title'] . $title . $args['after_title'], null );
 				$widget = new UptimeRobot;
 				$widget->uptimerobot_widget_function();
 			}
 
-			echo $args['after_widget'];
+			echo wp_kses( $args['after_widget'], null );
 
 		}
 
@@ -66,8 +66,8 @@ if ( class_exists( 'UptimeRobot' ) ) {
 
 			?>
 			<p>
-				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:' ); ?></label>
-				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+				<label for="<?php esc_html_e( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:' ); ?></label>
+				<input class="widefat" id="<?php esc_html_e( $this->get_field_id( 'title' ) ); ?>" name="<?php esc_html_e( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php esc_html_e( $title ); ?>" />
 			</p>
 			<?php
 

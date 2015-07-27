@@ -1,10 +1,9 @@
 <?php
-
 /**
  * Uptime Robot class.
  *
  * @class		UptimeRobot
- * @version		1.0.9
+ * @version		1.1.1
  * @package		Uptime Robot
  * @author 		Brian Welch
  */
@@ -406,7 +405,6 @@ if ( ! class_exists( 'UptimeRobot' ) ) {
 		/**
 		 * Print out all the data and return the content in the Wordpress Dashboard widget.
 		 * @since  1.0.9
-		 * @param  [type] $status [description].
 		 */
 		public function uptimerobot_widget_function() {
 
